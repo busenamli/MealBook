@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ToolBarStyle" parent="Theme.MealBook">
+        <item name="android:textColorSecondary">@color/design_default_color_primary</item>
+    </style>
+</resources>

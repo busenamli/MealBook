@@ -7,8 +7,6 @@ public interface ISelectedCategoryContract {
 
     interface View {
 
-        //void init();
-
         void showProgress();
 
         void hideProgress();

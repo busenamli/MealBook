@@ -25,11 +25,11 @@ public class CategoryPresenter implements ICategoryContract.Presenter {
     public CategoryPresenter(ICategoryContract.View view) {
         this.mView = view;
     }
-
     @Override
     public void start() {
-        //mView.init();
+
     }
+
 
     @Override
     public void fetchStates() {

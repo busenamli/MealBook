@@ -29,7 +29,7 @@ public class SelectedCategoryPresenter implements ISelectedCategoryContract.Pres
 
     @Override
     public void start() {
-        //mView.init();
+
     }
 
     @Override

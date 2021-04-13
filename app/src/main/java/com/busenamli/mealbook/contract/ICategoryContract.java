@@ -6,8 +6,6 @@ public interface ICategoryContract {
 
     interface View {
 
-        //void init();
-
         void showProgress();
 
         void hideProgress();

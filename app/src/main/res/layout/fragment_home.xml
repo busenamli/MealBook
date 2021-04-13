@@ -1,51 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.HomeFragment">
 
     <RelativeLayout
-        android:id="@+id/fragmentHome_stateRelative"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp">
+        android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/fragmentHome_stateRecyclerView"
+        <RelativeLayout
+            android:id="@+id/fragmentHome_stateRelative"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="horizontal"/>
-
-        <ProgressBar
-            android:id="@+id/fragmentHome_progressbar_state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/fragmentHome_categoryRelative"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/fragmentHome_stateRelative"
-        android:layout_marginTop="5dp">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/fragmentHome_categoryRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="100dp"
             android:layout_marginTop="5dp"
-            android:scrollbars="vertical"/>
+            android:layout_marginBottom="5dp">
 
-        <ProgressBar
-            android:id="@+id/fragmentHome_progressbar_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fragmentHome_stateRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="horizontal"/>
+
+            <ProgressBar
+                android:id="@+id/fragmentHome_progressbar_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/fragmentHome_categoryRelative"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/fragmentHome_stateRelative"
+            android:layout_marginTop="5dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fragmentHome_categoryRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:scrollbars="vertical"/>
+
+            <ProgressBar
+                android:id="@+id/fragmentHome_progressbar_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
     </RelativeLayout>
 
-</RelativeLayout>
+
+</ScrollView>

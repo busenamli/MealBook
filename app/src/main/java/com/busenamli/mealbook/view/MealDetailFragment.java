@@ -12,30 +12,35 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.busenamli.mealbook.MyStorage;
 import com.busenamli.mealbook.R;
+import com.busenamli.mealbook.adapter.MealDetailAdapter;
 import com.busenamli.mealbook.contract.ISelectedMealContract;
+import com.busenamli.mealbook.model.IngredientsModel;
 import com.busenamli.mealbook.model.SelectedMealModel;
 import com.busenamli.mealbook.model.StrSelectedMealModel;
 import com.busenamli.mealbook.presenter.SelectedMealPresenter;
 import com.squareup.picasso.Picasso;
 
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MealDetailFragment extends Fragment implements ISelectedMealContract.View {
 
     ImageView mealImage;
     TextView mealName, mealCategory, mealArea, mealInstructions;
+    ListView ingredientList;
     ProgressBar progressBar;
     private SelectedMealPresenter selectedMealPresenter;
     private MyStorage myStorage;
-    int favourite = 1;
     String mealId, nameMeal;
 
     public MealDetailFragment() {
@@ -83,6 +88,8 @@ public class MealDetailFragment extends Fragment implements ISelectedMealContrac
         mealArea = view.findViewById(R.id.meal_area_text);
         mealInstructions = view.findViewById(R.id.meal_instructions_text);
         progressBar = view.findViewById(R.id.mealDetailFragment_progressBar);
+        ingredientList = view.findViewById(R.id.ingredient_listview);
+        ingredientList.setDivider(null);
 
         selectedMealPresenter.fetchStates(mealId);
 
@@ -149,11 +156,42 @@ public class MealDetailFragment extends Fragment implements ISelectedMealContrac
     public void loadList(SelectedMealModel selectedMealModel) {
         List<StrSelectedMealModel> strSelectedMealModel = selectedMealModel.getSelectedMeal();
 
-        mealName.setText(strSelectedMealModel.get(0).strMeal);
-        Picasso.get().load(strSelectedMealModel.get(0).strMealThumb).into(mealImage);
-        mealArea.setText(strSelectedMealModel.get(0).strArea);
-        mealCategory.setText(strSelectedMealModel.get(0).strCategory);
-        mealInstructions.setText(strSelectedMealModel.get(0).strInstructions);
+        StrSelectedMealModel strModel = strSelectedMealModel.get(0);
+
+        mealName.setText(strModel.strMeal);
+        Picasso.get().load(strModel.strMealThumb).into(mealImage);
+        mealArea.setText(strModel.strArea);
+        mealCategory.setText(strModel.strCategory);
+        mealInstructions.setText(strModel.strInstructions);
+
+        ArrayList<IngredientsModel> ingredientsModels = new ArrayList<>();
+
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient1, strModel.strMeasure1));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient2, strModel.strMeasure2));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient3, strModel.strMeasure3));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient4, strModel.strMeasure4));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient5, strModel.strMeasure5));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient6, strModel.strMeasure6));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient7, strModel.strMeasure7));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient8, strModel.strMeasure8));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient9, strModel.strMeasure9));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient10, strModel.strMeasure10));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient11, strModel.strMeasure11));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient12, strModel.strMeasure12));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient13, strModel.strMeasure13));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient14, strModel.strMeasure14));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient15, strModel.strMeasure15));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient16, strModel.strMeasure16));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient17, strModel.strMeasure17));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient18, strModel.strMeasure18));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient19, strModel.strMeasure19));
+        ingredientsModels.add(new IngredientsModel(strModel.strIngredient20, strModel.strMeasure20));
+
+        System.out.println(ingredientsModels.get(1).getIngredients());
+        System.out.println(ingredientsModels.get(1).getMeasure());
+
+        MealDetailAdapter mealDetailAdapter = new MealDetailAdapter(MealDetailFragment.this.getActivity(),ingredientsModels);
+        ingredientList.setAdapter(mealDetailAdapter);
 
     }
 }

@@ -29,7 +29,7 @@ public class SelectedMealPresenter implements ISelectedMealContract.Presenter {
 
     @Override
     public void start() {
-        //mView.init();
+
     }
 
     @Override

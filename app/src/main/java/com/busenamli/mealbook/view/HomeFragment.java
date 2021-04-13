@@ -126,7 +126,5 @@ public class HomeFragment extends Fragment implements IStateContract.View, ICate
         stateAdapter = new StateAdapter(strAreaModels,getActivity());
         stateRecyclerView.setAdapter(stateAdapter);
     }
-
-
 }
 

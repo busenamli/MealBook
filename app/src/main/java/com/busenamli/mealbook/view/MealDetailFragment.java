@@ -70,7 +70,7 @@ public class MealDetailFragment extends Fragment implements ISelectedMealContrac
         super.onViewCreated(view, savedInstanceState);
 
         if (getArguments() != null){
-            mealId = MealDetailFragmentArgs.fromBundle(getArguments()).getİdMeal();
+            mealId = MealDetailFragmentArgs.fromBundle(getArguments()).getIdMeal();
             nameMeal = MealDetailFragmentArgs.fromBundle(getArguments()).getNameMeal();
         }
 
